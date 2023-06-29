@@ -24,13 +24,13 @@ const Page = () => {
 
   return (
     <div>
-      <header className="max-w-4xl my-10 mx-auto">
-        <div className="">
+      <header className="max-w-5xl my-10 mx-auto pl-5">
+        <div>
           <img src="./assets/powered.png" alt="Imagem do Logotipo" width={150} />
         </div>
       </header>
 
-      <div className="flex max-w-4xl my-10 mx-auto gap-20">
+      <div className="flex flex-col gap-10 max-w-5xl my-10 mx-auto px-5 md:flex-row md:gap-20">
         <div className="flex-1">
           <h1 className="text-4xl font-bold text-sky-950">Calcule o seu IMC</h1>
           <p className="text-base mb-10 text-gray-700">IMC é a sigla para Índice de Massa Corpórea, parâmetro adotado pela Organização Mundial de Saúde para calcula o peso ideal de cada pessoa.</p>
@@ -53,7 +53,7 @@ const Page = () => {
 
           <button 
             onClick={handleCalculateButton}
-            className="w-full mt-16 py-4 px-0 bg-sky-600 border-none rounded-lg text-white font-bold cursor-pointer hover:bg-opacity-80 transition duration-300"
+            className="w-full mt-5 py-4 px-0 bg-sky-600 border-none rounded-lg text-white font-bold cursor-pointer hover:bg-opacity-80 transition duration-300 md:mt-16"
           >
             Calcular
           </button>
@@ -61,7 +61,7 @@ const Page = () => {
 
         <div className="flex-1 flex">
           {!toShowItem &&
-            <div className="flex-1 grid grid-cols-2 gap-5">
+            <div className="flex-1 grid grid-cols-1 gap-5 sm:grid-cols-2 ">
             {levels.map((item, key) => {
               {console.log("KEY = " + key)}
               if (key < 4) {
@@ -78,7 +78,7 @@ const Page = () => {
           {toShowItem &&
             <div className="flex-1 flex">
               <div
-                className="flex justify-center items-center w-20 h-20 -ml-10 mt-36 absolute bg-sky-600 rounded-full cursor-pointer"
+                className="flex justify-center items-center w-20 h-20 -ml-10 mt-36 absolute bg-sky-600 rounded-full cursor-pointer hover:bg-sky-700 transition duration-300"
                 onClick={handleBackButton}
               >
                   <img src="./assets/leftarrow.png" alt="Seta de volta" width={25} />

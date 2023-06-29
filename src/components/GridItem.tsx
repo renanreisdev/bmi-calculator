@@ -19,9 +19,9 @@ export const GridItem = ({ item }: Props) => {
                 <div className="mt-5 mb-12 mx-0 text-lg">Seu IMC é de {item.yourImc} kg/m²</div>
             }
 
-            <div className="mt-3 text-xs">
+            <div className="mt-3 text-[0.74rem]">
                 <>
-                    IMC está entre <strong>{item.imc[0].toFixed(2)}</strong> e <strong>{item.imc[1].toFixed(2)}</strong>
+                    IMC está entre <strong>{item.imc[0].toFixed(1)}</strong> e <strong>{item.imc[1].toFixed(1)}</strong>
                 </>
             </div>
         </div>
