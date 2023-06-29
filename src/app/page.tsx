@@ -1,16 +1,25 @@
 "use client"
+import { GridItem } from "@/components/GridItem";
+import { Level, calculateImc, levels } from "@/helpers/imc";
 import { useState } from "react";
 
 const Page = () => {
   const [heightField, setHeightField] = useState<number>(0);
   const [weightField, setWeightField] = useState<number>(0);
+  const [toShowItem, setToShowItem] = useState<Level | null>(null)
 
   const handleCalculateButton = () => {
     if (heightField && weightField) {
-
+      setToShowItem(calculateImc(heightField, weightField));
     } else {
       alert("Digite todos os campos!");
     }
+  }
+
+  const handleBackButton = () => {
+    setToShowItem(null);
+    setHeightField(0);
+    setWeightField(0);
   }
 
   return (
@@ -49,7 +58,36 @@ const Page = () => {
             Calcular
           </button>
         </div>
-        <div className="flex-1">right</div>
+
+        <div className="flex-1 flex">
+          {!toShowItem &&
+            <div className="flex-1 grid grid-cols-2 gap-5">
+            {levels.map((item, key) => {
+              {console.log("KEY = " + key)}
+              if (key < 4) {
+                return <GridItem
+                  key={key} item={item}
+                />
+              } else {
+                return null;
+              }
+            })}
+            </div>
+          }
+
+          {toShowItem &&
+            <div className="flex-1 flex">
+              <div
+                className="flex justify-center items-center w-20 h-20 -ml-10 mt-36 absolute bg-sky-600 rounded-full cursor-pointer"
+                onClick={handleBackButton}
+              >
+                  <img src="./assets/leftarrow.png" alt="Seta de volta" width={25} />
+              </div>
+              <GridItem item={toShowItem} />
+            </div>
+          }
+        </div>
+
       </div>
     </div>
   );
