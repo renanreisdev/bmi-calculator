@@ -78,7 +78,7 @@ const Page = () => {
           {toShowItem &&
             <div className="flex-1 flex">
               <div
-                className="flex justify-center items-center w-20 h-20 -ml-10 mt-36 absolute bg-sky-600 rounded-full cursor-pointer hover:bg-sky-700 transition duration-300"
+                className="flex justify-center items-center w-20 h-20 -ml-3 -mt-3 absolute bg-sky-600 rounded-full cursor-pointer hover:bg-sky-700 transition duration-300 md:-ml-10 md:mt-36"
                 onClick={handleBackButton}
               >
                   <img src="./assets/leftarrow.png" alt="Seta de volta" width={25} />
